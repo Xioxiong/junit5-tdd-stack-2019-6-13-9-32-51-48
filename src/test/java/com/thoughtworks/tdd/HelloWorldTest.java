@@ -1,54 +1,57 @@
 package com.thoughtworks.tdd;
 
-import com.thoughtworks.tdd.Dependency;
-import com.thoughtworks.tdd.HelloWorld;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 
 public class HelloWorldTest {
 
-    @BeforeAll
-    static void initTestEnv() {
-    }
-
-    @BeforeEach
-    void initEveryMethod() {
-    }
-
-
     @Test
-    @DisplayName("try display name")
-    public void hello_world_test() {
-        //given
-        Dependency dependency = new Dependency();
-        HelloWorld helloWorld = new HelloWorld(dependency);
-
-        //when
-        String actual = helloWorld.beenCalled();
-
-        //then
-        assertThat(actual, is("Leave me alone."));
+    public void should_match_1_fizzbuzz_1() {
+    	Game game = new Game();
+    	String result = game.fizzBuzz(1);
+    	Assertions.assertEquals("1",result);
     }
-
     @Test
-    public void should_be_mocked() {
-        //given
-        Dependency dependency = mock(Dependency.class);
-        when(dependency.say()).thenReturn("Hello World");
-        HelloWorld helloWorld = new HelloWorld(dependency);
-
-        //when
-        String actual = helloWorld.beenCalled();
-
-        //then
-        assertThat(actual, is("Hello World"));
+    public void should_match_3_fizzbuzz_Fizz() {
+    	Game game = new Game();
+    	String result = game.fizzBuzz(3);
+    	Assertions.assertEquals("Fizz",result);
+    }
+    
+    @Test
+    public void should_match_5_fizzbuzz_Buzz() {
+    	Game game = new Game();
+    	String result = game.fizzBuzz(5);
+    	Assertions.assertEquals("Buzz",result);
+    }
+    @Test
+    public void should_match_7_fizzbuzz_Whizz() {
+    	Game game = new Game();
+    	String result = game.fizzBuzz(7);
+    	Assertions.assertEquals("Whizz",result);
+    }
+    @Test
+    public void should_match_15_fizzbuzz_FizzBuzz() {
+    	Game game = new Game();
+    	String result = game.fizzBuzz(15);
+    	Assertions.assertEquals("FizzBuzz",result);
+    }
+    @Test
+    public void should_match_21_fizzbuzz_FizzWhizz() {
+    	Game game = new Game();
+    	String result = game.fizzBuzz(21);
+    	Assertions.assertEquals("FizzWhizz",result);
+    }
+    @Test
+    public void should_match_35_fizzbuzz_BuzzWhizz() {
+    	Game game = new Game();
+    	String result = game.fizzBuzz(35);
+    	Assertions.assertEquals("BuzzWhizz",result);
+    }
+    @Test
+    public void should_match_105_fizzbuzz_FizzBuzzWhizz() {
+    	Game game = new Game();
+    	String result = game.fizzBuzz(105);
+    	Assertions.assertEquals("FizzBuzzWhizz",result);
     }
 }
